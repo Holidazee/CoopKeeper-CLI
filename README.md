@@ -19,7 +19,7 @@ A C++ command-line application for managing backyard chicken coops — tracking 
 
 ## 🚀 Overview
 
-CoopKeeper-CLI is a menu-driven application designed to help chicken owners track and manage all aspects of their flock in one place.
+CoopKeeper-CLI is a C++ menu-driven application designed to help chicken owners track and manage all aspects of their flock in one place.
 
 It provides a clean, structured interface for recording daily activity while maintaining persistent data across sessions.
 
