@@ -1,137 +1,136 @@
-# 🐔 CoopKeeper
+# 🐔 CoopKeeper-CLI
 
-A practical, real-world **C++ chicken coop management system** built to track flock performance, expenses, and maintenance with simple file-based storage.
+A C++ command-line application for managing backyard chicken coops — tracking egg production, feed, expenses, health, and cleaning with persistent storage and CSV export functionality.
 
-Designed for both **personal use (actual chicken owners)** and as a **portfolio-ready C++ project demonstrating real-world engineering skills**.
+---
+
+## 📸 Preview
+
+### Dashboard
+![Dashboard](screenshots/dashboard.png)
+
+### Egg Records
+![Egg Records](screenshots/eggs.png)
+
+### CSV Export
+![Export](screenshots/export.png)
 
 ---
 
 ## 🚀 Overview
 
-CoopKeeper is a **menu-driven CLI application** that helps you manage:
+CoopKeeper-CLI is a menu-driven application designed to help chicken owners track and manage all aspects of their flock in one place.
 
-- 🐓 Chickens
-- 🥚 Egg production
-- 🌾 Feed usage
-- 💰 Expenses
-- 🩺 Health records
-- 🧼 Cleaning logs
-
-All data is persisted using `.txt` files and can be exported to `.csv` for analysis.
+It provides a clean, structured interface for recording daily activity while maintaining persistent data across sessions.
 
 ---
 
-## ✨ Key Features
+## ✨ Features
 
-### 📊 Startup Dashboard
-- Total eggs collected
-- Monthly production summary
+### 📊 Dashboard
+- Flock size overview
+- Daily, monthly, and yearly egg production
 - Feed cost tracking
-- Expense totals
-- Cost per dozen eggs (current month)
-- Health note count
-- Cleaning count
-- Last cleaning date
-- Clean UI with pause before menu
+- Monthly expenses
+- Cost per dozen eggs
+- Health activity summary
+- Cleaning records with last cleaning date
 
 ---
 
 ### 🥚 Egg Tracking
-- Add/edit/delete records
-- Sorted chronologically (ASC)
-- Daily notes support
-- Monthly insights
+- Add, view, edit, and delete records
+- Chronological sorting (oldest → newest)
+- Monthly filtering
+- Notes for each entry
 
 ---
 
 ### 💰 Expense Management
-- Categorized expenses
-- Running totals
-- CSV export support
+- Categorized expense tracking
+- Monthly totals
+- Cost analysis integration
 
 ---
 
 ### 🌾 Feed Tracking
-- Track feed purchases
-- Monitor cost trends
+- Track feed purchases and costs
+- Monthly averages
 
 ---
 
 ### 🩺 Health Notes
-- Log illnesses, injuries, observations
-- Historical tracking
+- Log health observations and issues
+- Track recent activity
 
 ---
 
 ### 🧼 Cleaning Records
-- Track coop maintenance
-- Dashboard visibility for last clean date
+- Record coop cleanings
+- Dashboard visibility for last cleaning date
 
 ---
 
 ### 📤 CSV Export
-Export all major data sets:
-- Eggs
-- Expenses
-- Feed
-- Health
-- Cleaning
-
-Perfect for Excel or long-term analysis.
+- Export all data to CSV files
+- Compatible with Excel and external analysis tools
 
 ---
 
 ## 🧱 Tech Stack
 
 - C++ (C++17)
-- STL (vectors, file streams)
-- File-based persistence (TXT)
+- Standard Template Library (STL)
+- File I/O (TXT persistence)
 - CSV export functionality
-- Object-Oriented Design
+- Object-Oriented Programming (OOP)
 
 ---
 
 ## 📁 Project Structure
 
 ```
-CoopKeeper/
+CoopKeeper-CLI/
 │
-├── data/              # TXT storage (persistent data)
-├── exports/           # CSV output files
+├── data/              # Persistent TXT data storage
+├── exports/           # Generated CSV files
+├── screenshots/       # README preview images
 │
-├── *.h                # Header files (models + tracker)
-├── *.cpp              # Implementation files
+├── include/           # Header files
+├── src/               # Implementation files
 │
-└── main.cpp           # Entry point
+├── README.md
+├── LICENSE.txt
+└── CoopKeeper.vcxproj
 ```
 
 ---
 
-## ⚙️ How to Run
+## ⚙️ Getting Started
 
-### 1. Clone Repo
+### 1. Clone the repository
 ```bash
-git clone https://github.com/Holidazee/CoopKeeper.git
+git clone https://github.com/Holidazee/CoopKeeper-CLI.git
 ```
 
 ### 2. Open in Visual Studio 2022
 
-### 3. IMPORTANT Setup
+### 3. Setup required folders
 
-Ensure folders exist in your build directory:
+Ensure the following directories exist in your build output folder:
 
 ```
 x64/Debug/data/
 x64/Debug/exports/
 ```
 
-This is required for file loading/saving to work.
+These are required for proper file loading and saving.
 
 ---
 
-### 4. Build & Run
+### 4. Build and Run
 
-Press **F5** or run via Visual Studio.
+Press **F5** in Visual Studio or run the executable.
 
 ---
 
@@ -152,46 +151,32 @@ DATE,VALUE,NOTES
 
 ## 🧠 What This Project Demonstrates
 
-This project showcases:
-
-- Real-world data persistence
+- Real-world problem solving
+- Persistent data management using file systems
 - Clean object-oriented design
-- File I/O and serialization
-- CLI UX design
-- Modular architecture
-- Problem-solving with evolving requirements
+- CLI user interface design
+- Modular and scalable architecture
+- Data processing and reporting
 
 ---
 
 ## 🔧 Challenges Solved
 
-- Fixing file load/save issues across directories
-- Implementing CSV export alongside TXT storage
-- Sorting and indexing consistency (egg records)
-- Designing a usable CLI dashboard
-- Maintaining clean separation between models and logic
+- Reliable file loading and saving across directories
+- Maintaining sorted and indexed data consistency
+- Implementing CSV export alongside TXT persistence
+- Designing a clean and usable CLI dashboard
+- Structuring a multi-module C++ application
 
 ---
 
 ## 🔮 Future Improvements
 
-- GUI version (Qt or web app)
-- SQLite database backend
-- Graphs & analytics dashboard
-- Multi-user or multi-coop support
-- Mobile-friendly interface
-
----
-
-## 📸 Recommended Additions
-
-To improve this project further:
-
-- Add screenshots of:
-  - Dashboard
-  - Menu system
-- Include sample data files
-- Add a demo GIF
+- GUI version (Qt or web-based dashboard)
+- SQLite or database integration
+- Data visualization (charts/graphs)
+- Multi-coop support
+- Mobile companion app
 
 ---
 
@@ -204,10 +189,4 @@ https://github.com/Holidazee
 
 ## 📜 License
 
-MIT License (recommended)
-
----
-
-## 🧪 Sample Use Case
-
-Track daily egg production, monitor feed costs, and calculate cost per dozen eggs over time — ideal for backyard chicken owners.
+MIT License
