@@ -1,23 +1,23 @@
-2026-04-01,Feed,Layer feed purchase,24.50
-2026-03-15,Supply,New nesting pads,18.00
-2026-02-20,Health,Dewormer,15.00
-2026-02-01,Feed,Layer feed purchase,23.25
-2026-01-18,Supply,Water heater,35.00
-2025-12-22,Feed,Layer feed purchase,22.75
-2025-12-05,Supply,Bedding straw,12.00
-2025-11-18,Health,Vitamins,14.00
-2025-11-02,Feed,Layer feed purchase,22.00
-2025-10-15,Supply,Feeder upgrade,25.00
-2025-10-01,Feed,Layer feed purchase,21.50
-2025-09-18,Health,Electrolytes,13.00
-2025-09-01,Feed,Layer feed purchase,21.00
-2025-08-15,Supply,Shade tarp,20.00
-2025-08-01,Feed,Layer feed purchase,20.50
-2025-07-15,Health,Heat supplements,11.00
-2025-07-01,Feed,Layer feed purchase,20.00
-2025-06-15,Supply,Nesting box repair,22.00
-2025-06-01,Feed,Layer feed purchase,19.50
-2025-05-15,Health,General tonic,10.00
-2025-05-01,Feed,Layer feed purchase,19.00
-2025-04-15,Supply,Coop cleaner,16.00
-2025-04-01,Feed,Layer feed purchase,18.50
+04/01/2026|Feed|Layer feed purchase|24.50
+03/15/2026|Supply|New nesting pads|18.00
+02/20/2026|Health|Dewormer|15.00
+02/01/2026|Feed|Layer feed purchase|23.25
+01/18/2026|Supply|Water heater|35.00
+12/22/2025|Feed|Layer feed purchase|22.75
+12/05/2025|Supply|Bedding straw|12.00
+11/18/2025|Health|Vitamins|14.00
+11/02/2025|Feed|Layer feed purchase|22.00
+10/15/2025|Supply|Feeder upgrade|25.00
+10/01/2025|Feed|Layer feed purchase|21.50
+09/18/2025|Health|Electrolytes|13.00
+09/01/2025|Feed|Layer feed purchase|21.00
+08/15/2025|Supply|Shade tarp|20.00
+08/01/2025|Feed|Layer feed purchase|20.50
+07/15/2025|Health|Heat supplements|11.00
+07/01/2025|Feed|Layer feed purchase|20.00
+06/15/2025|Supply|Nesting box repair|22.00
+06/01/2025|Feed|Layer feed purchase|19.50
+05/15/2025|Health|General tonic|10.00
+05/01/2025|Feed|Layer feed purchase|19.00
+04/15/2025|Supply|Coop cleaner|16.00
+04/01/2025|Feed|Layer feed purchase|18.50
