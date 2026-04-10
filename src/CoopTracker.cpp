@@ -38,6 +38,10 @@ namespace UI {
         return out.str();
     }
 
+    string label(const string& text) {
+        return ANSI::BRIGHT_CYAN + text + ANSI::RESET;
+    }
+
     string success(const string& message) {
         return ANSI::GREEN + "[OK] " + message + ANSI::RESET;
     }
@@ -675,12 +679,33 @@ void CoopTracker::showDashboard() const {
     cout << ANSI::DIM << "Current period: " << monthYearLabel(month, year) << ANSI::RESET << "\n\n";
 
     cout << ANSI::BOLD << ANSI::MAGENTA << "FLOCK" << ANSI::RESET << "\n";
-    cout << "Chickens:                 " << UI::value(to_string(chickens.size())) << "\n\n";
+    cout << "Chickens:                " << UI::value(to_string(chickens.size())) << "\n\n";
 
-    cout << ANSI::BOLD << ANSI::CYAN << "PRODUCTION" << ANSI::RESET << "\n";
-    cout << "Eggs (Today):             " << UI::value(to_string(eggsToday)) << "\n";
-    cout << "Eggs (This Month):        " << UI::value(to_string(eggTotalMonth)) << "\n";
-    cout << "Eggs (This Year):         " << UI::value(to_string(eggTotalYear)) << "\n\n";
+    // Egg bar
+    cout << UI::label("Eggs (Today):            ")
+        << UI::value(to_string(eggsToday)) << "\n";
+
+    // Egg bar
+    int maxEggs = 24;
+    int barWidth = 20;
+
+    int filled = (eggsToday * barWidth) / maxEggs;
+    if (filled > barWidth) filled = barWidth;
+
+    int empty = barWidth - filled;
+
+    cout << UI::label("Egg Bar (Today):         ");
+
+    for (int i = 0; i < filled; i++) cout << UI::value("#");
+    for (int i = 0; i < empty; i++) cout << ANSI::BRIGHT_BLACK << "-" << ANSI::RESET;
+
+    cout << "\n\n";
+
+    cout << UI::label("Eggs (This Month):       ")
+        << UI::value(to_string(eggTotalMonth)) << "\n";
+
+    cout << UI::label("Eggs (This Year):        ")
+        << UI::value(to_string(eggTotalYear)) << "\n\n";
 
     cout << ANSI::BOLD << ANSI::YELLOW << "FINANCIAL" << ANSI::RESET << "\n";
     cout << "Feed Cost (This Month):   " << UI::money(feedTotal) << "\n";
@@ -726,13 +751,23 @@ void CoopTracker::showInsights() const {
 
     ostringstream change;
     change << fixed << setprecision(2);
+
+    string trend = "[SAME]";
+
     if (productionChange > 0.0) {
         change << "+" << productionChange << "%";
+        trend = "[UP]";
+    }
+    else if (productionChange < 0.0) {
+        change << productionChange << "%";
+        trend = "[DOWN]";
     }
     else {
-        change << productionChange << "%";
+        change << "0.00%";
     }
-    cout << "Vs Last Month:            " << UI::value(change.str()) << "\n";
+
+    cout << "Vs Last Month:            "
+        << UI::value(trend + " " + change.str()) << "\n";
 }
 
 void CoopTracker::showAlerts() const {
