@@ -1,192 +1,141 @@
-# 🐔 CoopKeeper-CLI
+# 🐔 CoopKeeper CLI
 
-A C++ command-line application for managing backyard chicken coops — tracking egg production, feed, expenses, health, and cleaning with persistent storage and CSV export functionality.
+A feature-rich C++ command-line application for managing a backyard chicken coop.
+Track egg production, feed usage, expenses, health notes, and cleaning records — all from a clean, styled dashboard interface.
 
 ---
 
-## 📸 Preview
+## 📸 Screenshots
 
-### Dashboard
+### 🧭 Dashboard
+
 ![Dashboard](screenshots/dashboard.png)
 
-### Egg Records
+### 🥚 Egg Records
+
 ![Egg Records](screenshots/eggs.png)
 
-### CSV Export
+### 📁 CSV Export
+
 ![Export](screenshots/export.png)
 
 ---
 
-## 🚀 Overview
+## 🚀 Features
 
-CoopKeeper-CLI is a C++ menu-driven application designed to help chicken owners track and manage all aspects of their flock in one place.
+* 🐔 Manage chickens (name, breed, age, notes)
+* 🥚 Track egg production (daily, monthly, yearly)
+* 🌾 Log feed usage (type, quantity, cost)
+* 💰 Record and categorize expenses
+* 🩺 Store health notes per chicken
+* 🧼 Track cleaning activity and maintenance
+* 📊 Generate reports:
 
-It provides a clean, structured interface for recording daily activity while maintaining persistent data across sessions.
-
----
-
-## ✨ Features
-
-### 📊 Dashboard
-- Flock size overview
-- Daily, monthly, and yearly egg production
-- Feed cost tracking
-- Monthly expenses
-- Cost per dozen eggs
-- Health activity summary
-- Cleaning records with last cleaning date
+  * Monthly
+  * Yearly
+  * Custom date range
+* 📁 Export all data to CSV
 
 ---
 
-### 🥚 Egg Tracking
-- Add, view, edit, and delete records
-- Chronological sorting (oldest → newest)
-- Monthly filtering
-- Notes for each entry
+## 🎨 UI Highlights
+
+* ANSI-styled terminal interface
+* Color-coded sections for readability
+* Real-time dashboard summaries
+* Egg production bar visualization
+* Trend indicators for performance tracking
+* Clean menu navigation and layout
 
 ---
 
-### 💰 Expense Management
-- Categorized expense tracking
-- Monthly totals
-- Cost analysis integration
+## 📊 Dashboard Insights
+
+* Total flock size
+* Eggs collected (today, month, year)
+* Cost per dozen eggs
+* Feed and expense summaries
+* Last cleaning and health activity
+* Month-over-month production trends
 
 ---
 
-### 🌾 Feed Tracking
-- Track feed purchases and costs
-- Monthly averages
+## 🧠 Insights & Alerts
+
+* Average eggs per day
+* Best production day tracking
+* Production trend comparison vs last month
+* Alerts for:
+
+  * low production
+  * missed cleanings
+  * unusual activity
 
 ---
 
-### 🩺 Health Notes
-- Log health observations and issues
-- Track recent activity
-
----
-
-### 🧼 Cleaning Records
-- Record coop cleanings
-- Dashboard visibility for last cleaning date
-
----
-
-### 📤 CSV Export
-- Export all data to CSV files
-- Compatible with Excel and external analysis tools
-
----
-
-## 🧱 Tech Stack
-
-- C++ (C++17)
-- Standard Template Library (STL)
-- File I/O (TXT persistence)
-- CSV export functionality
-- Object-Oriented Programming (OOP)
-
----
-
-## 📁 Project Structure
+## 📂 Project Structure
 
 ```
-CoopKeeper-CLI/
+CoopKeeper/
 │
-├── data/              # Persistent TXT data storage
-├── exports/           # Generated CSV files
-├── screenshots/       # README preview images
+├── data/               # Local data storage (.txt files)
+├── exports/            # CSV export output
+├── screenshots/        # README images
 │
-├── include/           # Header files
-├── src/               # Implementation files
+├── include/            # Header files
+├── src/                # Source files
 │
-├── README.md
-├── LICENSE.txt
-└── CoopKeeper.vcxproj
+├── main.cpp
+└── README.md
 ```
 
 ---
 
-## ⚙️ Getting Started
+## ⚙️ How to Run
 
-### 1. Clone the repository
-```bash
-git clone https://github.com/Holidazee/CoopKeeper-CLI.git
-```
-
-### 2. Open in Visual Studio 2022
-
-### 3. Setup required folders
-
-Ensure the following directories exist in your build output folder:
+1. Clone the repository:
 
 ```
-x64/Debug/data/
-x64/Debug/exports/
+git clone https://github.com/YOUR_USERNAME/CoopKeeper.git
 ```
 
-These are required for proper file loading and saving.
+2. Open in Visual Studio 2022
+
+3. Build and run
 
 ---
 
-### 4. Build and Run
+## 💡 Technologies Used
 
-Press **F5** in Visual Studio or run the executable.
-
----
-
-## 🧾 Example Data Format
-
-**eggs.txt**
-```
-2026-04-01,12,Strong production
-2026-04-02,10,Cool morning
-```
-
-Format:
-```
-DATE,VALUE,NOTES
-```
+* C++
+* Standard Template Library (STL)
+* File I/O (text-based persistence)
+* ANSI terminal styling
+* CSV export handling
 
 ---
 
-## 🧠 What This Project Demonstrates
+## 🔧 Notes
 
-- Real-world problem solving
-- Persistent data management using file systems
-- Clean object-oriented design
-- CLI user interface design
-- Modular and scalable architecture
-- Data processing and reporting
+* Data is stored locally in `.txt` files
+* CSV exports are saved in the `exports/` folder
+* Designed for Windows console (ANSI enabled)
 
 ---
 
-## 🔧 Challenges Solved
+## 🎯 Purpose
 
-- Reliable file loading and saving across directories
-- Maintaining sorted and indexed data consistency
-- Implementing CSV export alongside TXT persistence
-- Designing a clean and usable CLI dashboard
-- Structuring a multi-module C++ application
+This project demonstrates:
 
----
-
-## 🔮 Future Improvements
-
-- GUI version (Qt or web-based dashboard)
-- SQLite or database integration
-- Data visualization (charts/graphs)
-- Multi-coop support
-- Mobile companion app
+* Object-oriented design in C++
+* File-based data persistence
+* CLI application UX design
+* Real-world problem solving with structured data
 
 ---
 
 ## 👨‍💻 Author
 
-Taylor Burris  
-https://github.com/Holidazee
+Built as a practical, real-world C++ project focused on usability, structure, and meaningful features.
 
 ---
-
-## 📜 License
-
-MIT License
