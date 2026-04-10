@@ -4,11 +4,12 @@
 ![CLI App](https://img.shields.io/badge/interface-CLI-green)
 ![Status](https://img.shields.io/badge/status-active-success)
 
-> 🐔 A practical, data-driven CLI tool for managing backyard chicken operations — built in C++ with real-world modeling and analytics.
 
 A feature-rich C++ command-line application for managing backyard chickens, tracking egg production, analyzing costs, and monitoring coop operations.
 
-Built with real-world data modeling, object-oriented design, and persistent storage.
+Built with real-world data modeling, object-oriented design, and persistent data storage.
+
+Designed to replace spreadsheets and manual tracking with a structured, data-driven system.
 
 ---
 
@@ -25,6 +26,8 @@ Instead of spreadsheets or scattered notes, this tool provides a structured, dat
 ---
 
 ## 🎬 Demo Video
+
+Full walkthrough of CoopKeeper’s features and CLI interface:
 
 <p align="center">
   <a href="https://www.youtube.com/watch?v=tT4yOsNMKbs">
@@ -65,6 +68,19 @@ Instead of spreadsheets or scattered notes, this tool provides a structured, dat
 - Cost per egg and per dozen  
 - Feed cost tracking over time  
 - Cleaning frequency and maintenance intervals  
+
+---
+
+## 🧪 Example Use Case
+
+A backyard chicken owner can use CoopKeeper to:
+
+- Track daily egg production trends  
+- Monitor feed costs over time  
+- Identify seasonal drops in productivity  
+- Stay on top of coop maintenance  
+
+This turns raw data into actionable insights for better flock management.
 
 ---
 
@@ -132,12 +148,15 @@ Instead of spreadsheets or scattered notes, this tool provides a structured, dat
 ## 🖼️ Screenshots
 
 ### Dashboard
+
 ![Dashboard](screenshots/dashboard.png)
 
 ### Egg Records
+
 ![Egg Records](screenshots/eggs.png)
 
 ### CSV Export Confirmation
+
 ![CSV Export](screenshots/export.png)
 
 ---
