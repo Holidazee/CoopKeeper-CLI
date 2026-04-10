@@ -1,192 +1,168 @@
-# 🐔 CoopKeeper-CLI
+# 🐔 CoopKeeper CLI
 
-A C++ command-line application for managing backyard chicken coops — tracking egg production, feed, expenses, health, and cleaning with persistent storage and CSV export functionality.
+A practical **C++ CLI application** for managing chicken coop operations, including egg production, feed tracking, expenses, health logs, and cleaning records.
 
 ---
 
-## 📸 Preview
+## 🚀 Features
+
+* 📊 **Startup Dashboard**
+
+  * Total eggs collected
+  * Monthly production summary
+  * Cost per dozen (current month)
+  * Last cleaning date
+
+* 🥚 **Egg Tracking**
+
+  * Add, edit, delete records
+  * Automatically sorted by date
+  * Notes for production trends
+
+* 🌾 **Feed Tracking**
+
+  * Log feed purchases
+  * Track total feed cost
+
+* 💸 **Expense Tracking**
+
+  * Categorized expense logging
+  * Summary by category
+
+* 🏥 **Health Notes**
+
+  * Track issues, treatments, observations
+
+* 🧹 **Cleaning Records**
+
+  * Log coop cleanings
+  * View last cleaning date on dashboard
+
+* 📁 **Persistent Storage**
+
+  * Data saved in `.txt` files
+  * Automatically loaded at startup
+
+* 📤 **CSV Export**
+
+  * Export records for Excel or analysis
+
+---
+
+## 📸 Screenshots
 
 ### Dashboard
+
 ![Dashboard](screenshots/dashboard.png)
 
 ### Egg Records
+
 ![Egg Records](screenshots/eggs.png)
 
-### CSV Export
-![Export](screenshots/export.png)
+### CSV Export Confirmation
+
+![CSV Export](screenshots/export.png)
 
 ---
 
-## 🚀 Overview
+## 🛠️ Tech Stack
 
-CoopKeeper-CLI is a C++ menu-driven application designed to help chicken owners track and manage all aspects of their flock in one place.
-
-It provides a clean, structured interface for recording daily activity while maintaining persistent data across sessions.
-
----
-
-## ✨ Features
-
-### 📊 Dashboard
-- Flock size overview
-- Daily, monthly, and yearly egg production
-- Feed cost tracking
-- Monthly expenses
-- Cost per dozen eggs
-- Health activity summary
-- Cleaning records with last cleaning date
+* C++
+* Object-Oriented Design (OOP)
+* File I/O (`.txt` persistence)
+* CSV export functionality
+* ANSI terminal styling (enhanced CLI UI)
 
 ---
 
-### 🥚 Egg Tracking
-- Add, view, edit, and delete records
-- Chronological sorting (oldest → newest)
-- Monthly filtering
-- Notes for each entry
-
----
-
-### 💰 Expense Management
-- Categorized expense tracking
-- Monthly totals
-- Cost analysis integration
-
----
-
-### 🌾 Feed Tracking
-- Track feed purchases and costs
-- Monthly averages
-
----
-
-### 🩺 Health Notes
-- Log health observations and issues
-- Track recent activity
-
----
-
-### 🧼 Cleaning Records
-- Record coop cleanings
-- Dashboard visibility for last cleaning date
-
----
-
-### 📤 CSV Export
-- Export all data to CSV files
-- Compatible with Excel and external analysis tools
-
----
-
-## 🧱 Tech Stack
-
-- C++ (C++17)
-- Standard Template Library (STL)
-- File I/O (TXT persistence)
-- CSV export functionality
-- Object-Oriented Programming (OOP)
-
----
-
-## 📁 Project Structure
+## 📂 Project Structure
 
 ```
 CoopKeeper-CLI/
-│
-├── data/              # Persistent TXT data storage
-├── exports/           # Generated CSV files
-├── screenshots/       # README preview images
-│
-├── include/           # Header files
-├── src/               # Implementation files
-│
+├── data/              # Persistent text data files
+├── exports/           # CSV export output
+├── include/           # Header files (.h)
+├── src/               # Source files (.cpp)
+├── screenshots/       # App screenshots
+├── CoopKeeper.sln     # Visual Studio solution
+├── CoopKeeper.vcxproj # Visual Studio project
 ├── README.md
-├── LICENSE.txt
-└── CoopKeeper.vcxproj
+└── LICENSE.txt
 ```
 
 ---
 
-## ⚙️ Getting Started
+## ⚙️ Setup & Run
 
 ### 1. Clone the repository
+
 ```bash
 git clone https://github.com/Holidazee/CoopKeeper-CLI.git
+cd CoopKeeper-CLI
 ```
 
-### 2. Open in Visual Studio 2022
+### 2. Open in Visual Studio
 
-### 3. Setup required folders
+* Open `CoopKeeper.sln`
+* Build and run (`Ctrl + F5`)
 
-Ensure the following directories exist in your build output folder:
+### 3. Visual Studio Note
+
+*When running from Visual Studio, ensure these folders exist in your build directory:*
 
 ```
 x64/Debug/data/
 x64/Debug/exports/
 ```
 
-These are required for proper file loading and saving.
+> These are used for reading/writing `.txt` files and exporting CSVs.
 
 ---
 
-### 4. Build and Run
+## 📊 Example Data Files
 
-Press **F5** in Visual Studio or run the executable.
+Located in `/data/`:
 
----
-
-## 🧾 Example Data Format
-
-**eggs.txt**
-```
-2026-04-01,12,Strong production
-2026-04-02,10,Cool morning
-```
-
-Format:
-```
-DATE,VALUE,NOTES
-```
+* `chickens.txt`
+* `egg_records.txt`
+* `feed_records.txt`
+* `expenses.txt`
+* `health_notes.txt`
+* `cleaning_records.txt`
 
 ---
 
-## 🧠 What This Project Demonstrates
+## ✨ Highlights
 
-- Real-world problem solving
-- Persistent data management using file systems
-- Clean object-oriented design
-- CLI user interface design
-- Modular and scalable architecture
-- Data processing and reporting
-
----
-
-## 🔧 Challenges Solved
-
-- Reliable file loading and saving across directories
-- Maintaining sorted and indexed data consistency
-- Implementing CSV export alongside TXT persistence
-- Designing a clean and usable CLI dashboard
-- Structuring a multi-module C++ application
+* Clean modular design using multiple classes
+* Designed and implemented a multi-module C++ application with persistent storage and CSV export
+* Real-world use case (homestead / backyard farming)
+* Strong CLI UX with styled output
+* Practical data tracking + reporting
 
 ---
 
 ## 🔮 Future Improvements
 
-- GUI version (Qt or web-based dashboard)
-- SQLite or database integration
-- Data visualization (charts/graphs)
-- Multi-coop support
-- Mobile companion app
+* Monthly/yearly analytics reports
+* Cost trends visualization
+* Configurable file paths (remove Debug dependency)
+* Cross-platform support (Linux/Mac)
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
 
 ---
 
 ## 👨‍💻 Author
 
-Taylor Burris  
-https://github.com/Holidazee
+Built by **Taylor Burris**
 
 ---
 
-## 📜 License
+## ⭐ If you like this project
 
-MIT License
+Give it a star on GitHub — it helps a lot!
