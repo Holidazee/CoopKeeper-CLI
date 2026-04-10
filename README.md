@@ -1,168 +1,218 @@
 # 🐔 CoopKeeper CLI
 
-A practical **C++ CLI application** for managing chicken coop operations, including egg production, feed tracking, expenses, health logs, and cleaning records.
+A feature-rich **C++ command-line application** for managing backyard chickens, tracking egg production, monitoring costs, and maintaining coop health.
+
+Built with real-world modeling, clean OOP design, and persistent data storage.
 
 ---
 
 ## 🚀 Features
 
-* 📊 **Startup Dashboard**
+### 📊 Smart Dashboard
 
-  * Total eggs collected
-  * Monthly production summary
-  * Cost per dozen (current month)
+* Eggs today, last 7 days, and current month
+* Lay rate (%) with performance status:
+
+  * Excellent / Good / Fair / Low
+* Financial tracking:
+
+  * Cost per egg
+  * Cost per dozen
+* Production insights:
+
+  * Best production day
+  * Monthly trend vs previous month
+* Maintenance tracking:
+
   * Last cleaning date
-
-* 🥚 **Egg Tracking**
-
-  * Add, edit, delete records
-  * Automatically sorted by date
-  * Notes for production trends
-
-* 🌾 **Feed Tracking**
-
-  * Log feed purchases
-  * Track total feed cost
-
-* 💸 **Expense Tracking**
-
-  * Categorized expense logging
-  * Summary by category
-
-* 🏥 **Health Notes**
-
-  * Track issues, treatments, observations
-
-* 🧹 **Cleaning Records**
-
-  * Log coop cleanings
-  * View last cleaning date on dashboard
-
-* 📁 **Persistent Storage**
-
-  * Data saved in `.txt` files
-  * Automatically loaded at startup
-
-* 📤 **CSV Export**
-
-  * Export records for Excel or analysis
+  * Smart alerts (low production, overdue cleaning)
 
 ---
 
-## 📸 Screenshots
+### 🥚 Egg Tracking
+
+* Add, edit, delete egg records
+* View all records (sorted chronologically)
+* ✅ **NEW: View egg records by month**
+* Realistic daily production tracking
+
+---
+
+### 🌽 Feed Tracking
+
+* Track feed purchases and costs
+* View full history
+* ✅ **NEW: Filter feed records by month**
+
+---
+
+### 💰 Expense Tracking
+
+* Log coop-related expenses
+* Categorize spending
+* Monthly summaries
+* ✅ **NEW: View expenses by month**
+
+---
+
+### 🧹 Cleaning Records
+
+* Track coop cleaning activity
+* Monitor cleaning frequency
+* ✅ **NEW: View cleaning records by month**
+
+---
+
+### 🩺 Health Notes
+
+* Track chicken health issues
+* Log observations per bird
+* ✅ **NEW: View health notes by month**
+
+---
+
+## 🖼️ Screenshots
 
 ### Dashboard
 
-![Dashboard](screenshots/dashboard.png)
+![Dashboard](screenshots/Dashboard.png)
 
 ### Egg Records
 
-![Egg Records](screenshots/eggs.png)
+![Egg Records](screenshots/EggRecords.png)
+
+### Add Egg Entry
+
+![Add Egg](screenshots/addegg.png)
 
 ### CSV Export Confirmation
 
-![CSV Export](screenshots/export.png)
+![CSV Export](screenshots/csvconfirm.png)
 
 ---
 
-## 🛠️ Tech Stack
-
-* C++
-* Object-Oriented Design (OOP)
-* File I/O (`.txt` persistence)
-* CSV export functionality
-* ANSI terminal styling (enhanced CLI UI)
-
----
-
-## 📂 Project Structure
+## 📁 Project Structure
 
 ```
-CoopKeeper-CLI/
-├── data/              # Persistent text data files
-├── exports/           # CSV export output
-├── include/           # Header files (.h)
-├── src/               # Source files (.cpp)
-├── screenshots/       # App screenshots
-├── CoopKeeper.sln     # Visual Studio solution
-├── CoopKeeper.vcxproj # Visual Studio project
-├── README.md
-└── LICENSE.txt
+CoopKeeper/
+│
+├── data/
+│   ├── Chickens.txt
+│   ├── EggRecords.txt
+│   ├── FeedRecords.txt
+│   ├── Expenses.txt
+│   ├── CleaningRecords.txt
+│   └── HealthNotes.txt
+│
+├── exports/
+│   └── CSV exports generated here
+│
+├── screenshots/
+│   └── UI screenshots for README
+│
+├── src/
+│   ├── CoopTracker.cpp / .h
+│   ├── Chicken.cpp / .h
+│   ├── EggRecord.cpp / .h
+│   ├── FeedRecord.cpp / .h
+│   ├── Expense.cpp / .h
+│   ├── HealthNote.cpp / .h
+│   ├── CleaningRecord.cpp / .h
+│   └── Utils.cpp / .h
+│
+└── main.cpp
 ```
 
 ---
 
-## ⚙️ Setup & Run
+## 📅 Data Format
 
-### 1. Clone the repository
+All data is stored in pipe-delimited `.txt` files:
 
-```bash
+```
+MM/DD/YYYY|field|field|...
+```
+
+### Example:
+
+```
+04/09/2026|17|Strong spring production
+```
+
+---
+
+## 📈 Realistic Simulation
+
+* 20-hen flock model
+* Seasonal production changes:
+
+  * Spring/Summer → peak production
+  * Winter → reduced output
+* Realistic feed + expense tracking
+* Accurate cost-per-dozen calculations
+
+---
+
+## 💡 Example Output
+
+```
+Today's Lay Rate: 85.00% (17/20) - Excellent
+Cost Per Dozen: $3.99
+Best Day: 04/07/2026 (19 eggs)
+Production Trend: [UP] +24.74%
+```
+
+---
+
+## 🛠️ How to Run
+
+1. Clone the repo:
+
+```
 git clone https://github.com/Holidazee/CoopKeeper-CLI.git
-cd CoopKeeper-CLI
 ```
 
-### 2. Open in Visual Studio
+2. Open in Visual Studio 2022
 
-* Open `CoopKeeper.sln`
-* Build and run (`Ctrl + F5`)
-
-### 3. Visual Studio Note
-
-*When running from Visual Studio, ensure these folders exist in your build directory:*
+3. Ensure required folders exist:
 
 ```
-x64/Debug/data/
-x64/Debug/exports/
+/data
+/exports
+/screenshots
 ```
 
-> These are used for reading/writing `.txt` files and exporting CSVs.
+4. Build and run
 
 ---
 
-## 📊 Example Data Files
+## 🧠 Concepts Demonstrated
 
-Located in `/data/`:
-
-* `chickens.txt`
-* `egg_records.txt`
-* `feed_records.txt`
-* `expenses.txt`
-* `health_notes.txt`
-* `cleaning_records.txt`
+* Object-Oriented Programming (OOP)
+* File I/O (TXT + CSV export)
+* Data parsing and validation
+* Sorting and filtering
+* Date-based querying (month/year filtering)
+* Real-world data modeling
 
 ---
 
-## ✨ Highlights
+## 🔥 Future Improvements
 
-* Clean modular design using multiple classes
-* Designed and implemented a multi-module C++ application with persistent storage and CSV export
-* Real-world use case (homestead / backyard farming)
-* Strong CLI UX with styled output
-* Practical data tracking + reporting
-
----
-
-## 🔮 Future Improvements
-
-* Monthly/yearly analytics reports
-* Cost trends visualization
-* Configurable file paths (remove Debug dependency)
-* Cross-platform support (Linux/Mac)
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License.
+* Profit tracking (egg sales)
+* Per-chicken productivity tracking
+* GUI version (Qt or web app)
+* Graphs and analytics
+* Mobile companion app
 
 ---
 
 ## 👨‍💻 Author
 
-Built by **Taylor Burris**
+Taylor Burris
 
 ---
 
-## ⭐ If you like this project
+## ⭐ Support
 
-Give it a star on GitHub — it helps a lot!
+If you like this project, consider starring the repo!
