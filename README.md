@@ -1,6 +1,6 @@
 # 🐔 CoopKeeper CLI
 
-> A feature-rich C++ command-line application for managing backyard chickens, tracking egg production, analyzing costs, and monitoring coop operations.
+A feature-rich C++ command-line application for managing backyard chickens, tracking egg production, analyzing costs, and monitoring coop operations.
 
 Built with real-world data modeling, object-oriented design, and persistent storage.
 
@@ -10,7 +10,7 @@ Built with real-world data modeling, object-oriented design, and persistent stor
 
 Full walkthrough of CoopKeeper’s features and CLI interface:
 
-[![CoopKeeper Demo](screenshots/thumbnail.png)](https://www.youtube.com/watch?v=tT4yOsNMKbs)
+[![CoopKeeper Demo](screenshots/thumbnail.jpg)](https://www.youtube.com/watch?v=tT4yOsNMKbs)
 
 ---
 
