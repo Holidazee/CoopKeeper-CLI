@@ -53,19 +53,15 @@ A practical **C++ CLI application** for managing chicken coop operations, includ
 
 ### Dashboard
 
-![Dashboard](screenshots/Dashboard.png)
+![Dashboard](screenshots/dashboard.png)
 
 ### Egg Records
 
-![Egg Records](screenshots/EggRecords.png)
-
-### Add Egg Entry
-
-![Add Egg](screenshots/addegg.png)
+![Egg Records](screenshots/eggs.png)
 
 ### CSV Export Confirmation
 
-![CSV Export](screenshots/csvconfirm.png)
+![CSV Export](screenshots/export.png)
 
 ---
 
