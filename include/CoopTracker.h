@@ -150,4 +150,10 @@ public:
     void viewCleaningRecords() const;
     void editCleaningRecord();
     void deleteCleaningRecord();
+
+    void viewFeedRecordsByMonth() const;
+    void viewExpensesByMonth() const;
+    void viewEggRecordsByMonth() const;
+    void viewHealthNotesByMonth() const;
+    void viewCleaningRecordsByMonth() const;
 };

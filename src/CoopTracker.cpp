@@ -1119,16 +1119,18 @@ void CoopTracker::feedMenu() {
         printSectionHeader("FEED RECORDS");
         cout << "1. Add Feed Record\n";
         cout << "2. View Feed Records\n";
-        cout << "3. Edit Feed Record\n";
-        cout << "4. Delete Feed Record\n";
+        cout << "3. View Feed Records by Month\n";
+        cout << "4. Edit Feed Record\n";
+        cout << "5. Delete Feed Record\n";
         cout << "0. Back\n";
 
-        int choice = getValidatedInt("Choose an option: ", 0, 4);
+        int choice = getValidatedInt("Choose an option: ", 0, 5);
         if (choice == 0) return;
         if (choice == 1) addFeedRecord();
         else if (choice == 2) viewFeedRecords();
-        else if (choice == 3) editFeedRecord();
-        else if (choice == 4) deleteFeedRecord();
+        else if (choice == 3) viewFeedRecordsByMonth();
+        else if (choice == 4) editFeedRecord();
+        else if (choice == 5) deleteFeedRecord();
         pauseForEnter();
     }
 }
@@ -1138,18 +1140,20 @@ void CoopTracker::expenseMenu() {
         printSectionHeader("EXPENSES");
         cout << "1. Add Expense\n";
         cout << "2. View Expenses\n";
-        cout << "3. Edit Expense\n";
-        cout << "4. Delete Expense\n";
-        cout << "5. Expense Summary by Category\n";
+        cout << "3. View Expenses by Month\n";
+        cout << "4. Edit Expense\n";
+        cout << "5. Delete Expense\n";
+        cout << "6. Expense Summary by Category\n";
         cout << "0. Back\n";
 
-        int choice = getValidatedInt("Choose an option: ", 0, 5);
+        int choice = getValidatedInt("Choose an option: ", 0, 6);
         if (choice == 0) return;
         if (choice == 1) addExpense();
         else if (choice == 2) viewExpenses();
-        else if (choice == 3) editExpense();
-        else if (choice == 4) deleteExpense();
-        else if (choice == 5) showExpenseSummaryByCategory();
+        else if (choice == 3) viewExpensesByMonth();
+        else if (choice == 4) editExpense();
+        else if (choice == 5) deleteExpense();
+        else if (choice == 6) showExpenseSummaryByCategory();
         pauseForEnter();
     }
 }
@@ -1159,16 +1163,18 @@ void CoopTracker::eggMenu() {
         printSectionHeader("EGG RECORDS");
         cout << "1. Add Egg Record\n";
         cout << "2. View Egg Records\n";
-        cout << "3. Edit Egg Record\n";
-        cout << "4. Delete Egg Record\n";
+        cout << "3. View Egg Records by Month\n";
+        cout << "4. Edit Egg Record\n";
+        cout << "5. Delete Egg Record\n";
         cout << "0. Back\n";
 
-        int choice = getValidatedInt("Choose an option: ", 0, 4);
+        int choice = getValidatedInt("Choose an option: ", 0, 5);
         if (choice == 0) return;
         if (choice == 1) addEggRecord();
         else if (choice == 2) viewEggRecords();
-        else if (choice == 3) editEggRecord();
-        else if (choice == 4) deleteEggRecord();
+        else if (choice == 3) viewEggRecordsByMonth();
+        else if (choice == 4) editEggRecord();
+        else if (choice == 5) deleteEggRecord();
         pauseForEnter();
     }
 }
@@ -1178,16 +1184,18 @@ void CoopTracker::healthMenu() {
         printSectionHeader("HEALTH NOTES");
         cout << "1. Add Health Note\n";
         cout << "2. View Health Notes\n";
-        cout << "3. Edit Health Note\n";
-        cout << "4. Delete Health Note\n";
+        cout << "3. View Health Notes by Month\n";
+        cout << "4. Edit Health Note\n";
+        cout << "5. Delete Health Note\n";
         cout << "0. Back\n";
 
-        int choice = getValidatedInt("Choose an option: ", 0, 4);
+        int choice = getValidatedInt("Choose an option: ", 0, 5);
         if (choice == 0) return;
         if (choice == 1) addHealthNote();
         else if (choice == 2) viewHealthNotes();
-        else if (choice == 3) editHealthNote();
-        else if (choice == 4) deleteHealthNote();
+        else if (choice == 3) viewHealthNotesByMonth();
+        else if (choice == 4) editHealthNote();
+        else if (choice == 5) deleteHealthNote();
         pauseForEnter();
     }
 }
@@ -1197,18 +1205,167 @@ void CoopTracker::cleaningMenu() {
         printSectionHeader("CLEANING RECORDS");
         cout << "1. Add Cleaning Record\n";
         cout << "2. View Cleaning Records\n";
-        cout << "3. Edit Cleaning Record\n";
-        cout << "4. Delete Cleaning Record\n";
+        cout << "3. View Cleaning Records by Month\n";
+        cout << "4. Edit Cleaning Record\n";
+        cout << "5. Delete Cleaning Record\n";
         cout << "0. Back\n";
 
-        int choice = getValidatedInt("Choose an option: ", 0, 4);
+        int choice = getValidatedInt("Choose an option: ", 0, 5);
         if (choice == 0) return;
         if (choice == 1) addCleaningRecord();
         else if (choice == 2) viewCleaningRecords();
-        else if (choice == 3) editCleaningRecord();
-        else if (choice == 4) deleteCleaningRecord();
+        else if (choice == 3) viewCleaningRecordsByMonth();
+        else if (choice == 4) editCleaningRecord();
+        else if (choice == 5) deleteCleaningRecord();
         pauseForEnter();
     }
+}
+
+
+void CoopTracker::viewFeedRecordsByMonth() const {
+    printSectionHeader("FEED RECORDS BY MONTH");
+    if (feedRecords.empty()) {
+        cout << warnText("No feed records found.") << "\n";
+        return;
+    }
+
+    int month = getValidatedInt("Enter month (1-12): ", 1, 12);
+    int year = getValidatedInt("Enter year: ", 1900, 3000);
+
+    vector<FeedRecord> filtered;
+    for (const auto& record : feedRecords) {
+        if (isDateInMonthYear(record.getDate(), month, year)) {
+            filtered.push_back(record);
+        }
+    }
+
+    if (filtered.empty()) {
+        cout << warnText("No feed records found for " + monthYearLabel(month, year) + ".") << "\n";
+        return;
+    }
+
+    sort(filtered.begin(), filtered.end(), [this](const FeedRecord& a, const FeedRecord& b) {
+        return dateToSortableValue(a.getDate()) < dateToSortableValue(b.getDate());
+        });
+
+    cout << labelText("Showing records for: ") << monthYearLabel(month, year) << "\n\n";
+    printFeedRecordList(filtered);
+}
+
+void CoopTracker::viewExpensesByMonth() const {
+    printSectionHeader("EXPENSES BY MONTH");
+    if (expenses.empty()) {
+        cout << warnText("No expenses found.") << "\n";
+        return;
+    }
+
+    int month = getValidatedInt("Enter month (1-12): ", 1, 12);
+    int year = getValidatedInt("Enter year: ", 1900, 3000);
+
+    vector<Expense> filtered;
+    for (const auto& expense : expenses) {
+        if (isDateInMonthYear(expense.getDate(), month, year)) {
+            filtered.push_back(expense);
+        }
+    }
+
+    if (filtered.empty()) {
+        cout << warnText("No expenses found for " + monthYearLabel(month, year) + ".") << "\n";
+        return;
+    }
+
+    sort(filtered.begin(), filtered.end(), [this](const Expense& a, const Expense& b) {
+        return dateToSortableValue(a.getDate()) < dateToSortableValue(b.getDate());
+        });
+
+    cout << labelText("Showing records for: ") << monthYearLabel(month, year) << "\n\n";
+    printExpenseList(filtered);
+}
+
+void CoopTracker::viewEggRecordsByMonth() const {
+    printSectionHeader("EGG RECORDS BY MONTH");
+    if (eggRecords.empty()) {
+        cout << warnText("No egg records found.") << "\n";
+        return;
+    }
+
+    int month = getValidatedInt("Enter month (1-12): ", 1, 12);
+    int year = getValidatedInt("Enter year: ", 1900, 3000);
+
+    vector<EggRecord> filtered;
+    for (const auto& record : eggRecords) {
+        if (isDateInMonthYear(record.getDate(), month, year)) {
+            filtered.push_back(record);
+        }
+    }
+
+    if (filtered.empty()) {
+        cout << warnText("No egg records found for " + monthYearLabel(month, year) + ".") << "\n";
+        return;
+    }
+
+    cout << labelText("Showing records for: ") << monthYearLabel(month, year) << "\n\n";
+    printEggRecordListSorted(filtered);
+}
+
+void CoopTracker::viewHealthNotesByMonth() const {
+    printSectionHeader("HEALTH NOTES BY MONTH");
+    if (healthNotes.empty()) {
+        cout << warnText("No health notes found.") << "\n";
+        return;
+    }
+
+    int month = getValidatedInt("Enter month (1-12): ", 1, 12);
+    int year = getValidatedInt("Enter year: ", 1900, 3000);
+
+    vector<HealthNote> filtered;
+    for (const auto& note : healthNotes) {
+        if (isDateInMonthYear(note.getDate(), month, year)) {
+            filtered.push_back(note);
+        }
+    }
+
+    if (filtered.empty()) {
+        cout << warnText("No health notes found for " + monthYearLabel(month, year) + ".") << "\n";
+        return;
+    }
+
+    sort(filtered.begin(), filtered.end(), [this](const HealthNote& a, const HealthNote& b) {
+        return dateToSortableValue(a.getDate()) < dateToSortableValue(b.getDate());
+        });
+
+    cout << labelText("Showing records for: ") << monthYearLabel(month, year) << "\n\n";
+    printHealthNoteList(filtered);
+}
+
+void CoopTracker::viewCleaningRecordsByMonth() const {
+    printSectionHeader("CLEANING RECORDS BY MONTH");
+    if (cleaningRecords.empty()) {
+        cout << warnText("No cleaning records found.") << "\n";
+        return;
+    }
+
+    int month = getValidatedInt("Enter month (1-12): ", 1, 12);
+    int year = getValidatedInt("Enter year: ", 1900, 3000);
+
+    vector<CleaningRecord> filtered;
+    for (const auto& record : cleaningRecords) {
+        if (isDateInMonthYear(record.getDate(), month, year)) {
+            filtered.push_back(record);
+        }
+    }
+
+    if (filtered.empty()) {
+        cout << warnText("No cleaning records found for " + monthYearLabel(month, year) + ".") << "\n";
+        return;
+    }
+
+    sort(filtered.begin(), filtered.end(), [this](const CleaningRecord& a, const CleaningRecord& b) {
+        return dateToSortableValue(a.getDate()) < dateToSortableValue(b.getDate());
+        });
+
+    cout << labelText("Showing records for: ") << monthYearLabel(month, year) << "\n\n";
+    printCleaningRecordList(filtered);
 }
 
 void CoopTracker::addChicken() {
